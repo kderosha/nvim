@@ -22,6 +22,7 @@ opt.smartindent = true
 opt.tabstop = 2
 opt.softtabstop = 2
 
+opt.relativenumber = true
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
 opt.smartcase = true
