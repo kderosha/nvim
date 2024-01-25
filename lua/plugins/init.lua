@@ -152,6 +152,15 @@ local default_plugins = {
       require "plugins.configs.lspconfig"
     end,
   },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons"},
+    opts = {
+    },
+    config = function (_, opts)
+      require("trouble").setup(opts)
+    end,
+  },
 
   -- load luasnips + cmp related in insert mode only
   {
@@ -298,5 +307,13 @@ require("aerial").setup({
   end,
 })
 
+require("trouble")
+
 -- You probably also want to set a keymap to toggle aerial
 vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+vim.keymap.set("n", "<leader>tt", function() require("trouble").toggle() end)
+vim.keymap.set("n", "<leader>tw", function() require("trouble").toggle("workspace_diagnostics") end)
+vim.keymap.set("n", "<leader>td", function() require("trouble").toggle("document_diagnostics") end)
+vim.keymap.set("n", "<leader>tq", function() require("trouble").toggle("quickfix") end)
+vim.keymap.set("n", "<leader>tl", function() require("trouble").toggle("loclist") end)
+vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
