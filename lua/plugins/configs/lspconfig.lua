@@ -62,6 +62,8 @@ require("lspconfig").lua_ls.setup {
 }
 
 require("lspconfig").gopls.setup {
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
   settings = {
     gopls = {
       analyses = {
